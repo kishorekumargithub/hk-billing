@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('merchants', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->char('api_key_hash', 64)->unique();   // sha256 of the API key
             $table->timestamps();
         });
     }

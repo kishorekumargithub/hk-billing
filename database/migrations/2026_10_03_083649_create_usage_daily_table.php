@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('usage_daily', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('customer_id');
+            $table->date('usage_date');
+            $table->unsignedBigInteger('total_units');
             $table->timestamps();
+            $table->unique(['customer_id', 'usage_date']);
+            $table->index('usage_date');
         });
     }
 

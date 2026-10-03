@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('merchant_id')->constrained()->cascadeOnDelete();
+            $table->string('name');
+            $table->string('email')->nullable();
+            $table->string('external_ref', 100)->nullable();
             $table->timestamps();
+            $table->unique(['merchant_id', 'external_ref']);
         });
     }
 
