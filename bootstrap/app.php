@@ -12,7 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        $middleware->alias(['merchant' => \App\Http\Middleware\AuthenticateMerchant::class]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

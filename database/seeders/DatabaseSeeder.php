@@ -23,8 +23,16 @@ class DatabaseSeeder extends Seeder
                 'email' => 'kishoremdu.kumar@gmail.com',
             ],
             [
+                'name' => 'Rama Krishnan',
+                'email' => 'rama@krishnan.com',
+            ],
+            [
                 'name' => 'Test User',
                 'email' => 'test@example.com',
+            ],
+            [
+                'name' => 'John Doe',
+                'email' => 'john@example.com',
             ],
         ]);
     }
