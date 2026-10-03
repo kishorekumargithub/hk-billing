@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Plan extends Model
 {
+
     use HasFactory;
 
     /**
@@ -22,8 +23,21 @@ class Plan extends Model
         ];
     }
 
+    /**
+     * 
+     */
     public function merchant(): BelongsTo
     {
         return $this->belongsTo(Merchant::class);
     }
+
+    /**
+     * 
+     */
+    protected static function booted(): void
+    {
+        static::saved(fn (Plan $p) => PlanRepository::forget($p->id));
+        static::deleted(fn (Plan $p) => PlanRepository::forget($p->id));
+    }
+
 }
