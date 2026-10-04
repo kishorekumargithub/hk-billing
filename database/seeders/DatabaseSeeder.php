@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
+        User::factory()
+        ->count(4)->sequence(
             [
                 'name' => 'Kishore Kumar',
                 'email' => 'kishoremdu.kumar@gmail.com',
@@ -34,6 +35,6 @@ class DatabaseSeeder extends Seeder
                 'name' => 'John Doe',
                 'email' => 'john@example.com',
             ],
-        ]);
+        )->create();
     }
 }
